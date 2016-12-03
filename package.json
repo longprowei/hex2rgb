@@ -12,6 +12,10 @@
     "convert"
   ],
   "author": "Chenglong Wei",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/longprowei/hex2rgb.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "jshint": "^2.9.4",
