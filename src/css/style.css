@@ -1,0 +1,12 @@
+body {
+    background-color: #00cc00;
+    font-family: Helvetica, Arial, Sans-Serif;
+}
+
+main .hex-color,
+main .rgb-color {
+    font-size: 1.5em;
+    width: 10em;
+    display: block;
+    margin: auto;
+}
