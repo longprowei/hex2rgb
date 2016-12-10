@@ -1,13 +1,13 @@
 (function(){
     $(document).ready(function() {
-        $(".hex-color").keypress(function() {
+        $('.hex-color').on('input', function() {
             if (matchHex($(this).val())) {
                 var rgbStr = hexToRgb(processHex(this.value));
                 this.val(rgbStr);
             }
         });
 
-        $('.rgb-color').keypress(function(e) {
+        $('.rgb-color').on('input', function() {
             if (matchRgb($(this).val())) {
                 var hexStr = rgbToHex(processRgb(this.value));
                 this.val(hexStr);
@@ -15,8 +15,21 @@
         });
 
         function matchHex(str) {
-            console.log(str);
             str = str.trim();
+            str = str.toLowerCase();
+            var re = /^#?[0-9a-f]{3}$|^#?[0-9a-f]{6}$/;
+            if (str.match(re) === null) {
+                return null;
+            }
+
+            return;
+
+            if (str.length === 7 && str.at(0) === '#') {
+            } else if (str.length === 6) {
+            } else if (str.length === 3) {
+            } else {
+                return null;
+            }
         }
 
         function matchRgb(str) {
