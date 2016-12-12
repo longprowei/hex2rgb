@@ -38,6 +38,10 @@
         }
 
         function processHex(str) {
+            return 'rgb(' + str.At(0) * 16 + str.At(1) +
+                ', ' + str.At(2) * 16 * str.At(3) +
+                ', ' + str.At(4) * 16 + str.At(5) +
+                ')';
         }
 
         function processRgb(str) {
