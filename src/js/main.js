@@ -44,7 +44,9 @@
                 ')';
         }
 
-        function processRgb(str) {
+        /* obj is a object that includes
+         * r, g, b properties */
+        function processRgb(obj) {
         }
 
         function hexToRgb(str) {
