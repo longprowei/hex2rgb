@@ -5,7 +5,9 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir --parents dist"
+    "clean": "rm -r dist",
+    "build": "mkdir dist",
+    "watch": "watch 'npm run build' ./src"
   },
   "keywords": [
     "hex",
@@ -14,12 +16,13 @@
   ],
   "author": "Chenglong Wei",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/longprowei/hex2rgb.git"
+    "type": "git",
+    "url": "https://github.com/longprowei/hex2rgb.git"
   },
   "license": "ISC",
   "devDependencies": {
     "jshint": "^2.9.4",
-    "uglifyjs": "^2.4.10"
+    "uglify-js": "^3.0.23",
+    "watch": "^1.0.2"
   }
 }
