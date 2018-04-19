@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
-    "build": "npm run clean && mkdir dist && cp -r src/* dist/",
+    "html": "cp src/*.html dist/",
+    "js-lint": "eslint src/js dist/js",
+    "build": "npm run clean && mkdir dist && npm run html && npm run js-lint",
     "watch": "watch \"npm run build\" ./src",
     "server": "http-server dist/ -p 8081"
   },
@@ -22,7 +24,12 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "jshint": "^2.9.4",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
     "uglify-js": "^3.0.23",
     "watch": "^1.0.2"
   }
