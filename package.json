@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rm -r dist",
+    "clean": "rm -rf dist",
     "build": "npm run clean && mkdir dist && cp -r src/* dist/",
     "watch": "watch \"npm run build\" ./src",
     "server": "http-server dist/ -p 8081"
