@@ -6,9 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist",
+    "create-folder": "mkdir -p dist/js dist/css",
     "html": "cp src/*.html dist/",
     "js-lint": "eslint src/js dist/js",
-    "build": "npm run clean && mkdir dist && npm run html && npm run js-lint",
+    "js-min": "uglifyjs src/js/* -c -m --source-map -o dist/js/main.js",
+    "build": "npm run create-folder && npm run html && npm run js-min",
     "watch": "watch \"npm run build\" ./src",
     "server": "http-server dist/ -p 8081"
   },
