@@ -5,12 +5,13 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "css-min": "cleancss -o dist/css/main.min.css src/css/main.css",
     "clean": "rm -rf dist",
     "create-folder": "mkdir -p dist/js dist/css",
     "html": "cp src/*.html dist/",
     "js-lint": "eslint src/js dist/js",
     "js-min": "uglifyjs src/js/* -c -m --source-map -o dist/js/main.js",
-    "build": "npm run create-folder && npm run html && npm run js-min",
+    "build": "npm run create-folder && npm run html && npm run js-min && npm run css-min",
     "watch": "watch \"npm run build\" ./src",
     "server": "http-server dist/ -p 8081"
   },
@@ -26,6 +27,7 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "clean-css-cli": "^4.1.11",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.11.0",
