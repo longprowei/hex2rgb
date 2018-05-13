@@ -1,9 +1,11 @@
+'use strict';
+
 (function(){
     $(document).ready(function() {
         $('.hex-color').on('input', function() {
             if (matchHex($(this).val())) {
-                var rgbStr = hexToRgb(processHex(this.value));
-                this.val(rgbStr);
+                var rgbStr = hexToRgb($(this).val());
+                $('.rgb-color').val(rgbStr);
             }
         });
 
@@ -19,29 +21,15 @@
             str = str.toLowerCase();
             var re = /^#?[0-9a-f]{3}$|^#?[0-9a-f]{6}$/;
             if (str.match(re) === null) {
-                return null;
+                return false;
             }
 
-            return;
-
-            if (str.length === 7 && str.at(0) === '#') {
-            } else if (str.length === 6) {
-            } else if (str.length === 3) {
-            } else {
-                return null;
-            }
+            return true;
         }
 
         function matchRgb(str) {
             console.log(str);
             str = str.trim();
-        }
-
-        function processHex(str) {
-            return 'rgb(' + str.At(0) * 16 + str.At(1) +
-                ', ' + str.At(2) * 16 * str.At(3) +
-                ', ' + str.At(4) * 16 + str.At(5) +
-                ')';
         }
 
         /* obj is a object that includes
@@ -50,6 +38,31 @@
         }
 
         function hexToRgb(str) {
+            if (str.charAt[0] === '#') {
+                str = str.substr(1);
+            }
+
+            if (str.length === 6) {
+                var r = Number.parseInt(str.substr(0, 2), 16),
+                    g = Number.parseInt(str.substr(2, 2), 16),
+                    b = Number.parseInt(str.substr(4, 2), 16);
+
+                if (!isNaN(r) && !isNaN(g) && !isNaN(b)) {
+                    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+                } else {
+                    return "";
+                }
+            } else if (str.length === 3) {
+                var r = Number.parseInt(str.substr(0, 1), 16),
+                    g = Number.parseInt(str.substr(1, 1), 16),
+                    b = Number.parseInt(str.substr(2, 1), 16);
+
+                if (!isNaN(r) && !isNaN(g) && !isNaN(b)) {
+                    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+                } else {
+                    return "";
+                }
+            }
         }
 
         function rgbToHex(str) {

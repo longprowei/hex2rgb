@@ -10,7 +10,7 @@
     "create-folder": "mkdir -p dist/js dist/css",
     "html": "cp src/*.html dist/",
     "js-lint": "eslint src/js dist/js",
-    "js-min": "uglifyjs src/js/* -c -m --source-map -o dist/js/main.js",
+    "js-min": "uglifyjs src/js/* -c -m --source-map --comments '/^!/' -o dist/js/main.js",
     "build": "npm run create-folder && npm run html && npm run js-min && npm run css-min",
     "watch": "watch \"npm run build\" ./src",
     "server": "http-server dist/ -p 8081"
