@@ -3,38 +3,46 @@
 (function(){
     $(document).ready(function() {
         $('.hex-color').on('input', function() {
-            if (matchHex($(this).val())) {
-                var rgbStr = hexToRgb($(this).val());
+            var value = $(this).val();
+            value = value.trim();
+            value = value.toLowerCase();
+            if (matchHex(value)) {
+                var rgbStr = hexToRgb(value);
                 $('.rgb-color').val(rgbStr);
             }
         });
 
         $('.rgb-color').on('input', function() {
+            var value = $(this).val();
+            value = value.trim();
+            value = value.toLowerCase();
             if (matchRgb($(this).val())) {
-                var hexStr = rgbToHex(processRgb(this.value));
+                console.log('success');
+                return;
+                var hexStr = rgbToHex(value);
                 this.val(hexStr);
             }
         });
 
         function matchHex(str) {
-            str = str.trim();
-            str = str.toLowerCase();
             var re = /^#?[0-9a-f]{3}$|^#?[0-9a-f]{6}$/;
-            if (str.match(re) === null) {
-                return false;
+            if (str.match(re)) {
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         function matchRgb(str) {
-            console.log(str);
-            str = str.trim();
-        }
+            var re = /^rgb\(\s*([0-2][0-5]\d),\s*([0-2][0-5]\d), \s*([0-2][0-5]\d)\)$/;
+            if (str.match(re) && 
+                Number.parseInt(re.$1) < 256 &&
+                Number.parseInt(re.$2) < 256 &&
+                Number.parseInt(re.$2) < 256) {
+                return true;
+            }
 
-        /* obj is a object that includes
-         * r, g, b properties */
-        function processRgb(obj) {
+            return false;
         }
 
         function hexToRgb(str) {
@@ -67,6 +75,5 @@
 
         function rgbToHex(str) {
         }
-        
     });
 })();
