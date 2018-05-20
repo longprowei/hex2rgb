@@ -1,3 +1,7 @@
+/*!
+ * Author: Chenglong Wei
+ */
+
 'use strict';
 
 (function(){
@@ -34,11 +38,11 @@
         }
 
         function matchRgb(str) {
-            var re = /^rgb\(\s*([0-2][0-5]\d),\s*([0-2][0-5]\d), \s*([0-2][0-5]\d)\)$/;
+            var re = /^rgb\(\s*(\d),\s*(\d), \s*(\d)\)$/;
             if (str.match(re) && 
-                Number.parseInt(re.$1) < 256 &&
-                Number.parseInt(re.$2) < 256 &&
-                Number.parseInt(re.$2) < 256) {
+                Number.parseInt(re.$1) < 256 && Number.parseInt(re.$1) >= 0 &&
+                Number.parseInt(re.$2) < 256 && Number.parseInt(re.$2) >= 0 &&
+                Number.parseInt(re.$3) < 256 && Number.parseInt(re.$3) >= 0) {
                 return true;
             }
 
@@ -74,6 +78,11 @@
         }
 
         function rgbToHex(str) {
+            var re = /^rgb\(\s*([0-2][0-5]\d),\s*([0-2][0-5]\d), \s*([0-2][0-5]\d)\)$/;
+            str.match(re);
+            return '#' + Number.parseInt(Number.parseInt(re.$1 / 16), 16) + Number.parseInt(re.$1 % 16, 16)
+                + Number.parseInt(Number.parseInt(re.$2 / 16), 16) + Number.parseInt(re.$2 % 16, 16)
+                + Number.parseInt(Number.parseInt(re.$2 / 16), 16) + Number.parseInt(re.$2 % 16, 16)
         }
     });
 })();
