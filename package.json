@@ -7,6 +7,7 @@
     "react-dom": "^16.8.5",
     "react-scripts": "2.1.8"
   },
+  "homepage": "https://www.weichenglong.com/hex2rgb",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
