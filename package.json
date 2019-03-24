@@ -1,40 +1,25 @@
 {
   "name": "hex2rgb",
   "version": "0.1.0",
-  "description": "A page convert hex color to rgb color or reverse",
-  "main": "main.js",
+  "private": true,
+  "dependencies": {
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-scripts": "2.1.8"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "css-min": "cleancss -o dist/css/main.min.css src/css/main.css",
-    "clean": "rm -rf dist",
-    "create-folder": "mkdir -p dist/js dist/css",
-    "html": "cp src/*.html dist/",
-    "js-lint": "eslint src/js dist/js",
-    "js-min": "uglifyjs src/js/* -c -m --source-map --comments '/^!/' -o dist/js/main.js",
-    "build": "npm run create-folder && npm run html && npm run js-min && npm run css-min",
-    "watch": "watch \"npm run build\" ./src",
-    "server": "http-server dist/ -p 8081"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "keywords": [
-    "hex",
-    "color",
-    "convert"
-  ],
-  "author": "Chenglong Wei",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/longprowei/hex2rgb.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "clean-css-cli": "^4.1.11",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "uglify-js": "^3.0.23",
-    "watch": "^1.0.2"
-  }
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
