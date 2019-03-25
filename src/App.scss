@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+// custom variables
+@import "./variables-cus";
+
+// Bootstrap
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/forms";
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.input-container {
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}
+
+header {
+  height: $header-height;
+  padding: 10px 0;
+}
+
+footer {
+  text-align: center;
+  height: $footer-height;
+}

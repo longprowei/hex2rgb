@@ -1,5 +1,21 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
+
+function Header(props) {
+  return (
+    <header>
+      <h3 className="text-center text-md-left"><a href="/">To My Homepage</a></h3>
+    </header>
+  )
+}
+
+function Footer(props) {
+  return (
+    <footer>
+      <p>Chenglong Wei &copy; <span id="copyright-year">{new Date().getFullYear()}</span></p>
+    </footer>
+  )
+}
 
 function ColorFromGroup(props) {
   return (
@@ -122,12 +138,14 @@ class App extends Component {
 
     return (
       <div className="container-fluid">
+        <Header />
         <div className="row justify-content-center align-items-center input-container">
           <div className="col-sm-12 col-md-4 col-lg-3">
             <ColorFromGroup value={hex} id="hex-color" label="HEX" onChange={this.handleHexChange}/>
             <ColorFromGroup value={rgb} id="rgb-color" label="RGB" onChange={this.handleRgbChange}/>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
